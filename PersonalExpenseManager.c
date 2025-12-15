@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define the structure
+
 typedef struct {
     char category[50];
     float amount;
 } Expense;
 
 void addExpense() {
-    FILE *fp = fopen("expenses.txt", "a"); // Opens file in append mode
+    FILE *fp = fopen("expenses.txt", "a"); 
     Expense e;
 
     printf("Enter Category (example like: Food, Transport..): ");
@@ -17,7 +17,7 @@ void addExpense() {
     printf("Enter Amount: ");
     scanf("%f", &e.amount);
 
-    // Save to file in a simple format: Category Amount
+    
     fprintf(fp, "%s %.2f\n", e.category, e.amount);
     fclose(fp);
     printf("Expense saved!\n");
@@ -34,7 +34,7 @@ void viewExpenses() {
     }
 
     printf("\n--- Expense History ---\n");
-    // Scan the file until the end
+    
     while (fscanf(fp, "%s %f", cat, &amt) != EOF) {
         printf("Category: %-15s | Cost: $%.2f\n", cat, amt);
     }
@@ -57,3 +57,4 @@ int main() {
     }
     return 0;
 }
+
